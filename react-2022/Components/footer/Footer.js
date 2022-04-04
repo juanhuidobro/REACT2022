@@ -4,4 +4,4 @@ import React, {Component} from "react";
 
 
 
-export default Header;
+export default Footer;
