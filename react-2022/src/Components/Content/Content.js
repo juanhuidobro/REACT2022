@@ -28,6 +28,7 @@ class Content extends Component{
     }
     render (){
         console.log('renderizando')
+        console.log(this.state.contenido)
         return(
             <div> 
            { this.state.contenido.map( (popular,index) => {
