@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-
+import Card from "../Card/Card";
 
 
 class Content extends Component{
@@ -26,7 +26,14 @@ class Content extends Component{
             }))
         .catch( error => console.log(error))
         }
-    
+
+    render (){
+        return(
+            <React.Fragment>
+
+            </React.Fragment>
+        )
+    }
 
 }
 

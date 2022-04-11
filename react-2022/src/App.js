@@ -1,16 +1,12 @@
-
+import React from "react";
 import Content from "./Components/Content/Content";
 
 
 function App() {
   return (
-    <div className="App">
-     
+    <React.Fragment>
       <Content />
-      
-
-      
-    </div>
+      </React.Fragment>
   );
 }
 
