@@ -2,16 +2,13 @@ import React,{Component} from "react";
 import Card from "../Card/Card";
 
 
-
-
 class Content extends Component{
     constructor(props){
         super(props)
         this.state = {
-         contenido: []
-            
+         contenido: [],
+         display: "row"
         }
-
     }
 
     componentDidMount() {
@@ -32,7 +29,7 @@ class Content extends Component{
         return(
             <div> 
            { this.state.contenido.map( (popular,index) => {
-              return <Card key = {index} title = {popular.title} ></Card>
+              return <Card key = {index} title = {popular.title} image= {popular.poster_path} ></Card>
              
             } ) }  
           </div>
