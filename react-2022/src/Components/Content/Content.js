@@ -21,18 +21,26 @@ class Content extends Component{
             })
             )
             .catch( error => console.log(error));
-    
     }
+
+    addMore(){
+
+    }
+    
     render (){
         console.log('renderizando')
         console.log(this.state.contenido)
         return(
-            <div> 
+        <React.Fragment>
+            <div>
            { this.state.contenido.map( (popular,index) => {
-              return <Card key = {index} title = {popular.title} image= {popular.poster_path} ></Card>
-             
+              return <Card key = {index} title = {popular.title} image= {popular.poster_path} description= {popular.overview}></Card> 
             } ) }  
-          </div>
+            </div>
+            <div>
+             <button class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom" type="button" onClick={() => this.addMore()} >Cargar más peliculas</button>
+             </div>
+             </React.Fragment>
         )
     }
  

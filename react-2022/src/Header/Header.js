@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import "../css/Uikit.css";
 
 class Header extends Component {
 
@@ -10,13 +11,11 @@ class Header extends Component {
     render(){
         return(
 
-            <div>
-                <img src="" alt="logo"></img>
-                <ul>
-                    <li> hola </li>
-                </ul>
-            </div>
-
+            <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+    <nav class="uk-navbar-container" uk-navbar>
+        
+    </nav>
+        </div>
         )
     }
 }
