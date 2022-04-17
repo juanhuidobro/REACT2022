@@ -26,6 +26,13 @@ class Content extends Component{
     addMore(){
 
     }
+
+    deleteCard(borrarPeliculas){
+        let peliculasRestantes = this.state.contenido.filter(movie => movie.id !== borrarPeliculas);
+        this.setState({
+            contenido: peliculasRestantes
+        })
+    }
     
     render (){
         console.log('renderizando')
@@ -34,7 +41,7 @@ class Content extends Component{
         <React.Fragment>
             <div>
            { this.state.contenido.map( (popular,index) => {
-              return <Card key = {index} title = {popular.title} image= {popular.poster_path} description= {popular.overview}></Card> 
+              return <Card key = {index} title = {popular.title} image= {popular.poster_path} description= {popular.overview} estrellas= {popular.vote_average} eliminar={(borrarPeliculas) => this.deleteCard(borrarPeliculas)}></Card> 
             } ) }  
             </div>
             <div>

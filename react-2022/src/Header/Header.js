@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import "../css/Uikit.css";
+import "../css/uikit.css";
 
 class Header extends Component {
 
@@ -13,9 +13,9 @@ class Header extends Component {
 
             <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
     <nav class="uk-navbar-container" uk-navbar>
-        
+        Juan Huidobro y Yoel Park
     </nav>
-        </div>
+</div>
         )
     }
 }

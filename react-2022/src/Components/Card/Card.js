@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-import "../../css/Uikit.css";
+import "../../css/uikit.css";
 
 let ImagenPosta = "https://image.tmdb.org/t/p/original" //herramienta que nos deja traer imagenes
 
@@ -12,7 +12,7 @@ class Card extends Component{
         }
     }
     //ver mas
-    verMas(){
+    viewMore(){
         if(this.state.viewMore){
             this.setState({
                 viewMore: false,
@@ -28,16 +28,23 @@ class Card extends Component{
      
     render() {
     return (
-            <div class="uk-card uk-card-hover">
-             <section className={`extra ${this.state.viewMore ? 'show' : 'hide'}`}>     
-                <div> {this.props.title} </div>
-                <img src={`${ImagenPosta}${this.props.image}`} alt="" width="200" height="300"/>
-             </section>
-                {/* Boton VerMas */}
-                      <button class="uk-button uk-button-secondary uk-width-1-1"> 
-                      <p onClick={()=>this.verMas()}>
-                {this.props.description}</p>
-                      </button>
+            <div class="uk-card uk-card-hover" >
+                <div class="uk-text-center">
+        <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
+            <img src={`${ImagenPosta}${this.props.image}`} alt="" width="200" height="300"/>
+            <div class="uk-position-center">
+                <div class="uk-transition-slide-top-small"><h4 class="uk-margin-remove">{this.props.title}</h4></div>
+                <div class="uk-transition-slide-bottom-small"><h4 class="uk-margin-remove">{this.props.estrellas} </h4></div>
+            </div>
+        </div>
+        <p class="uk-margin-small-top">{this.props.title}</p>
+    </div>    
+                <section className={this.state.viewMore === false ? 'hide' : 'show'}>
+                    <p>{this.props.description}</p>
+                </section>
+                <button class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom"
+                name={this.state.viewMore} onClick={() => this.viewMore()}>VER MAS</button>
+                <button class="uk-button uk-button-secondary uk-width-1-1" onClick={() => this.props.remove(this.props.contenido.id)}>ELIMINAR PELICULA</button>
             </div>
     )
 }
