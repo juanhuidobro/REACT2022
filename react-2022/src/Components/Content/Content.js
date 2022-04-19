@@ -84,7 +84,7 @@ class Content extends Component{
             <div className={`flex-${this.state.orientacion}`}  > 
             <div>
                     <FiltroDePeliculas filtroPorTitulo={(titulo)=> this.filtrarPorTitulo(titulo)} />
-                 <button className="botones" onClick={()=>this.addTarjetas()}> Agregar más peliculas </button>
+                 <button className="botones" onClick={()=>this.addCard()}> Agregar más peliculas </button>
                  <button className="botones" onClick={()=>this.cambiarOrientacion()}> Cambiar orientación </button>
                  </div>
                 {this.state.peliculasOriginales.length === 0  ?

@@ -32,7 +32,7 @@ class Card extends Component{
         <img src={this.props.poster} alt={''} />
         <h1>{this.props.title} </h1>
         <p> {this.props.overview} </p>
-        <button className="elim" onClick={()=> this.props.removerPelicula(this.props.id)}> Eliminar Pelicula </button>
+        <button className="elim" onClick={()=> this.props.deleteCard(this.props.id)}> Eliminar Pelicula </button>
         <p> </p>
         <button className="infor" onClick= {() => this.verMas()}> {this.state.cambio} </button>
         <p className= {this.state.clase}> Fecha de salida: {this.props.salida} </p>
