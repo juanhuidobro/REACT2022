@@ -1,16 +1,17 @@
 import React from "react";
 import Content from "./Components/Content/Content";
-import Footer from "./Footer/Footer";
-import Header from "./Header/Header";
+import Footer from "./Components/Footer/Footer";
+import Header from "./Components/Header/Header";
 
 
 function App() {
   return (
-    <React.Fragment>
+   <div className="App">
       <Header />
       <Content />
       <Footer />
-      </React.Fragment>
+    </div>
+    
   );
 }
 

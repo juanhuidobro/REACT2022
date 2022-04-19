@@ -1,5 +1,9 @@
 import React,{Component} from "react";
 import Card from "../Card/Card";
+import cargando from '../Loader/cargando.gif';
+import FiltroDePeliculas from '../FiltroDePeliculas/FiltroDePeliculas';
+import "./Content.css"
+
 
 
 class Content extends Component{
@@ -77,16 +81,41 @@ class Content extends Component{
         console.log('renderizando')
         console.log(this.state.peliculas)
         return(
-        <React.Fragment>
+            <div className={`flex-${this.state.orientacion}`}  > 
             <div>
-           { this.state.contenido.map( (popular,index) => {
-              return <Card key = {index} title = {popular.title} image= {popular.poster_path} description= {popular.overview} estrellas= {popular.vote_average} eliminar={(borrarPeliculas) => this.deleteCard(borrarPeliculas)}></Card> 
-            } ) }  
+                    <FiltroDePeliculas filtroPorTitulo={(titulo)=> this.filtrarPorTitulo(titulo)} />
+                 <button className="botones" onClick={()=>this.addTarjetas()}> Agregar más peliculas </button>
+                 <button className="botones" onClick={()=>this.cambiarOrientacion()}> Cambiar orientación </button>
+                 </div>
+                {this.state.peliculasOriginales.length === 0  ?
+                
+                <img className="loading"src={cargando} alt=''/> : 
+                
+                 this.state.peliculas.length === 0 ?
+                    <h1 className="noExiste">No hay datos que coincidan con su búsqueda</h1> : 
+    
+                 this.state.peliculas.map( (popular,index) => {
+                    return <Card key = {index}
+                    id = {popular.id}
+                     title = {popular.title}
+                     poster = {`https://image.tmdb.org/t/p/w342/${popular.poster_path}`}
+                     overview  = {popular.overview} 
+                     salida = {popular.release_date}
+                     idioma = {popular.original_language}
+                     vote = {popular.vote_average}
+                     orientacion={this.state.orientacion}
+                     removerPelicula = {(id)=>this.removerPelicula(id)}
+                 
+                     
+                     
+                     />
+                     
+              }
+               
+              ) 
+            }
+              
             </div>
-            <div>
-             <button class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom" type="button" onClick={() => this.addMore()} >Cargar más peliculas</button>
-             </div>
-             </React.Fragment>
         )
     }
  
