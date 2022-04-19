@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import logo from '../img/TMDB.png';
+import "./Footer.css";
 
 class Footer extends Component {
 
@@ -10,10 +12,11 @@ class Footer extends Component {
     render(){
         return(
 
-            <div>
-                <img src="" alt=""></img>
-                <p>Hecho por Yoel Park y Juan Huidrobo.</p>
-            </div>
+            <footer className="padre">
+                <p className="texto">Hecho por Yoel Park y Juan Huidrobo.    </p>
+                <img className="tmdb" src={logo} alt='The Movie Data Base'/>
+            </footer>
+            
 
         )
     }

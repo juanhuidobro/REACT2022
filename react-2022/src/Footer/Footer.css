@@ -1,0 +1,23 @@
+.tmdb{
+    width: 10%;
+}
+
+.padre{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.texto{
+    font-size: xx-large;
+    width: 50%;
+    color: rgb(255, 255, 255);
+}
+img{
+    
+    margin-left: auto;
+}
+footer{
+  
+        background-color: rgb(1, 0, 49);
+     
+}

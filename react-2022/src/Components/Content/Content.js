@@ -6,37 +6,76 @@ class Content extends Component{
     constructor(props){
         super(props)
         this.state = {
-         contenido: [],
-         display: "row"
+            peliculas: [],
+            pagina: 1,
+            peliculasOriginales: [], 
+            display: props.display,
+            orientacion: "row"
         }
     }
 
     componentDidMount() {
-        fetch('https://api.themoviedb.org/3/movie/popular?api_key=d72b8119ca0d802447ebd91bded10750&language=en-US&page=1')
+        fetch('https://api.themoviedb.org/3/movie/popular?api_key=d72b8119ca0d802447ebd91bded10750&language=en-US')
         .then(response => response.json())
         .then(data => 
         
             this.setState({
-                contenido: data.results
+                peliculas: data.results, 
+                peliculasOriginales: data.results,
+                pagina: this.state.pagina + 1
             })
             )
             .catch( error => console.log(error));
     }
 
-    addMore(){
+    addCard(){
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=d72b8119ca0d802447ebd91bded10750&language=en-US&page=${this.state.pagina}`)
+        .then( response => response.json())
+        .then( data  => {
+            this.setState({
+            peliculas: this.state.peliculas.concat(data.results),
+            pagina: this.state.pagina + 1 
+        })})
+        .catch( error => console.log(error));
 
     }
 
-    deleteCard(borrarPeliculas){
-        let peliculasRestantes = this.state.contenido.filter(movie => movie.id !== borrarPeliculas);
+    deleteCard(id){
+        let buenas = this.state.peliculas.filter(pelicula => pelicula.id !==id)
         this.setState({
-            contenido: peliculasRestantes
+            peliculas: buenas, 
+            peliculasOriginales: buenas,
         })
     }
+    filtrarPorTitulo(tituloAFiltrar){
+        console.log(tituloAFiltrar);
+        const arrayFiltrado = this.state.peliculasOriginales.filter( elemento => {
+                  return  elemento.title.toLowerCase().includes(tituloAFiltrar.toLowerCase())
+        })
+           
+                this.setState({
+                    peliculas: arrayFiltrado 
+                 })
+          
+     
+ }
+      
+            cambiarOrientacion(){
+                if (this.state.orientacion === "row"){
+                    this.setState({
+                        orientacion: "column" })
+                } else {
+                    this.setState({
+                        orientacion: "row"
+                    })
+                }
+               
+               
+            }
     
     render (){
         console.log('renderizando')
-        console.log(this.state.contenido)
+        console.log(this.state.peliculas)
         return(
         <React.Fragment>
             <div>

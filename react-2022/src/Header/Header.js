@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import "../css/uikit.css";
+import "./Header.css";
 
 class Header extends Component {
 
@@ -9,15 +9,14 @@ class Header extends Component {
     }
 
     render(){
-        return(
-
-            <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
-    <nav class="uk-navbar-container" uk-navbar>
-        Juan Huidobro y Yoel Park
-    </nav>
-</div>
-        )
-    }
-}
-
-export default Header;
+    return (
+        <header>
+             
+        <h1>Digital movie</h1>
+         
+    </header>
+   
+    );
+  }
+   }
+  export default Header;
