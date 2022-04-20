@@ -104,7 +104,7 @@ class Content extends Component{
                      idioma = {popular.original_language}
                      vote = {popular.vote_average}
                      orientacion={this.state.orientacion}
-                     removerPelicula = {(id)=>this.removerPelicula(id)}
+                     deleteCard = {(id)=>this.deleteCard(id)}
                  
                      
                      
